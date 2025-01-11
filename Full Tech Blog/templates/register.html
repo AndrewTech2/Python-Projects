@@ -1,0 +1,47 @@
+{% block content %} {% include "header.html" %}
+
+<!-- Page Header -->
+<header
+  class="masthead"
+  style="background-image: url('../static/assets/img/home-bg.jpg')"
+>
+  <div class="container position-relative px-4 px-lg-5">
+    <div class="row gx-4 gx-lg-5 justify-content-center">
+      <div class="col-md-10 col-lg-8 col-xl-7">
+        <div class="page-heading">
+          <h1>Register</h1>
+          <span class="subheading">Start Contributing to the Blog!</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<main class="mb-4">
+  <div class="container">
+    <div class="row">
+      <div>
+        <!--TODO: render your registration form here-->
+        {% if error == 'already_exists': %}
+        <p><strong>Username already exists!</strong></p>
+        {% endif %}
+        {% if error == 'comment_prohibited': %}
+        <p><strong>You must create an account to comment!</strong></p>
+        {% endif %}
+        <form action="/add_user" method="post">
+          <label>Username:</label>
+          <input type="text" name="username" required>
+          <label>Email:</label>
+          <input type="email" name="email" required>
+          <label>Password:</label>
+          <input type="password" name="password" required>
+          <br>
+          <br>
+          <button type="submit">Register</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</main>
+
+{% include "footer.html" %} {% endblock %}

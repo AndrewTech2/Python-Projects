@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Movies{% endblock %}
+
+{% block content %}
+<div class="content">
+  <form action="/append" method="post">
+    <p>Movie Rating</p>
+    <input class="heading" name="rating" required>
+    <p>Movie Review</p>
+    <input class="description" name="review" required>
+    <button type="submit">Submit</button>
+  </form>
+  </div>
+{% endblock %}

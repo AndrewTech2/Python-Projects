@@ -1,0 +1,4 @@
+Base Currency: USD
+Amount: 2.0
+2.0 USD = 9.6606 RON
+Timestamp: 2025-01-06 18:40:43

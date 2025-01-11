@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Library</title>
+    {{ bootstrap.load_css() }}
+  </head>
+  <body>
+    <h1>My Library</h1>
+    <ul>
+      {% if length == '0': %}
+      <li style="list-style: none;">No books added.</li>
+      {% else: %}
+      {% for book in books: %}
+      <li>{{ book['title'] }} - {{ book['author'] }} - {{ book['rating'] }}</li>
+      {% endfor %}
+      {% endif %}
+    </ul>
+
+    <a href="{{ url_for('add') }}">Add New Book</a>
+  </body>
+</html>

@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block title %}Add Movie{% endblock %}
+
+{% block content %}
+<div class="content">
+    <form action="/process" method="post">
+        <h1 class="heading">Add a Movie</h1>
+        <h2 style="display: inline">Movie Title:</h2>
+            <input name="title">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+{% endblock %}

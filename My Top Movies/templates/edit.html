@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block title %}Edit Movies{% endblock %}
+
+{% block content %}
+<div class="content">
+  <form action="/update/{{ cid }}" method="post">
+    <p>Movie Title</p>
+    <input class="heading" name="title" required>
+    <p>Movie Description</p>
+    <input class="description" name="description" required>
+    <button type="submit">Submit</button>
+  </form>
+  </div>
+{% endblock %}

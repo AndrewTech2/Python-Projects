@@ -1,0 +1,30 @@
+{% extends 'header.html' %}
+{% block content %}
+
+<div class="d-flex flex-column flex-md-row p-4 gap-4 py-md-5 align-items-center justify-content-center">
+  <div class="list-group">
+    {% if length == 0: %}
+    <h1>No task added!</h1>
+    {% endif %}
+    {% for task in tasks: %}
+    <div class="list-group-item d-flex gap-3" style="padding-left: 1000; padding-right: 1000">
+      <span class="pt-1 form-checked-content">
+        <strong>{{ task['task'] }}</strong>
+      </span>
+      {% if task['completed'] == 'false': %}
+      <a href="/completetask/{{ task['task'] }}" class="btn btn-success">Complete</a>
+      {% else: %}
+      <a href="/uncompletetask/{{ task['task'] }}" class="btn btn-outline-success">Completed</a>
+      {% endif %}
+      <a class="btn btn-danger" href="/delete/{{ task['task'] }}">Remove</a>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+<form method="post" action="/addtask">
+<div class="h-100 d-flex align-items-center justify-content-center">
+<input type="text" required name="task" placeholder="Add a task...">
+<button style='margin-left: 20px;' type="submit" class="btn btn-primary">Save</button>
+</div>
+</form>
+{% endblock %}

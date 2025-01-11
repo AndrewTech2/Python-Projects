@@ -1,0 +1,8 @@
+,URL,Response Time (ms),Status Code,Status
+0,https://www.google.com,544423,200,Online
+1,https://www.github.com,344138,200,Online
+2,https://www.nonexistentwebsite12345.com,N/A,N/A,Offline
+3,https://www.wikipedia.org,215641,200,Online
+4,https://www.siveco.ro,N/A,N/A,Offline
+5,https://github.com/sgfaasfgfags,235857,404,Offline
+,,,

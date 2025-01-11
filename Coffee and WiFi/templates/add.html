@@ -1,0 +1,54 @@
+{% extends 'base.html' %}
+<!--Don't forget your import here-->
+{% block title %}
+Add a new cafe
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div>
+
+      <h1>Add a new cafe into the database</h1>
+
+      <form method="post" action="/new">
+        <label for="name">Cafe name:</label>
+        <input name="Cafe Name" id="name" type="text" required>
+        <label for="location">Location:</label>
+        <input name="Location" id="location" type="url" required>
+        <label for="Opening">Opening hours:</label>
+        <input name="Open" id="opening" type="time" required>
+        <label for="Closing">Closing hours:</label>
+        <input name="Close" id="closing" type="time" required>
+        <label for="coffee">Coffee Rating:</label>
+        <select name="Coffee" id="coffee" required>
+          <option value="☕">☕</option>
+          <option value="☕☕">☕☕</option>
+          <option value="☕☕☕">☕☕☕</option>
+          <option value="☕☕☕☕">☕☕☕☕</option>
+        </select>
+        <label for="wifi">WiFi Rating:</label>
+        <select name="Wifi" id="wifi" required>
+          <option value="❌">❌</option>
+          <option value="💪">💪</option>
+          <option value="💪💪">💪💪</option>
+          <option value="💪💪💪">💪💪💪</option>
+          <option value="💪💪💪💪">💪💪💪💪</option>
+        </select>
+        <label for="power">Power Rating:</label>
+        <select name="Power" id="power" required>
+          <option value="🔌">🔌</option>
+          <option value="🔌🔌">🔌🔌</option>
+          <option value="🔌🔌🔌">🔌🔌🔌</option>
+          <option value="🔌🔌🔌🔌">🔌🔌🔌🔌</option>
+        </select>
+        <button type="submit" id="submit">Add a cafe</button>
+      </form>
+
+	  <p class="space-above"><a href="{{ url_for('cafes') }}">See all cafes</a></p>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}
