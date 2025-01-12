@@ -1,3 +1,4 @@
+
 class Rectangle:
     def __init__(self, width, height):
         self.width = width
@@ -10,3 +11,11 @@ class Rectangle:
         if self.width == self.height:
             return True
         return False
+    def __eq__(self, other):
+        if self.width == other.width and self.height == other.height:
+            return True
+        return False
+    def __str__(self):
+        return f'Rectangle Object - Width: {self.width} - Height: {self.height}'
+
+rect = Rectangle(120, 230)
