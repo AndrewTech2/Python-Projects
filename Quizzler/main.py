@@ -16,7 +16,6 @@ layout = [[pg.Text("Quizzler™️", font=('Courier', 10))],
           [pg.Push(), pg.Button("✅", button_color="#00FF00", key='True', font=('Courier', 50)), pg.Push(), pg.Button("❌", button_color='#FF0000', key='False', font=('Courier', 50)), pg.Push()],
           [pg.Push(), pg.Text("Score: 0", font="Courier", key='score')]]
 screen = pg.Window(title="Quizzler App", layout=layout, finalize=True)
-screen.maximize()
 
 while True:
     event, values = screen.read()
