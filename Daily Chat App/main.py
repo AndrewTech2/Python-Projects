@@ -18,7 +18,7 @@ def index():
             conn = sqlite3.connect('data/messages.db')
             conn.row_factory = sqlite3.Row
             cur = conn.cursor()
-            cur.execute(f"INSERT INTO messages (USER, CONTENT, DATE, TIME) VALUES ('{session['name']}', '{form['content']}', '{today_date}', '{time_now}')")
+            cur.execute(f"INSERT INTO messages (USER, CONTENT, DATE, TIME) VALUES (?, ?, ?, ?)", [session['name'], form['content'], today_date, time_now])
             conn.commit()
             conn.close()
             return redirect("/")
@@ -29,6 +29,7 @@ def index():
         values = cur.fetchall()
         messages = [dict(value) for value in values]
         conn.close()
+        messages = messages[::-1]
         return render_template("chat.html", messages=messages, year=str(datetime.datetime.today().year))
     else:
         return render_template('index.html', year=str(datetime.datetime.today().year))
@@ -64,5 +65,11 @@ def sign_up():
         session['name'] = name
         return redirect("/")
     return render_template('signup.html', year=str(str(datetime.datetime.today().year)))
+
+@app.route("/logout")
+def logout():
+    if 'name' in session:
+        session.pop("name")
+    return redirect('/')
 
 app.run(debug=True)
