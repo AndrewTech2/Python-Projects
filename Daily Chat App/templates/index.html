@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Chat App</title>
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+    <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="{{ url_for('sign_up') }}" class="btn btn-primary">Sign up</a></li>
+      </ul>
+    </header>
+  </div>
+    <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="bootstrap-themes.png" class="d-block mx-lg-auto img-fluid" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Daily Chat App</h1>
+        <p class="lead">Daily Chat App is your go-to platform for seamless daily conversations. Designed to foster meaningful connections, it’s perfect for staying in touch with friends, family, or coworkers. Whether you want to share updates, plan events, or just chat about your day, our app offers a secure, intuitive, and feature-packed experience.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <a href="/signup" class="btn btn-primary btn-lg px-4 me-md-2">Sign Up</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    <div class="container px-4 py-5" id="hanging-icons">
+    <h2 class="pb-2 border-bottom">Features</h2>
+    <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#toggles2"></use></svg>
+        </div>
+        <div>
+          <h2>Simple Messaging</h2>
+          <p>Experience the future of simplicity with this messaging app.</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#cpu-fill"></use></svg>
+        </div>
+        <div>
+          <h2>Daily Chats</h2>
+          <p>Chats reset at the end of the day, so be careful!</p>
+        </div>
+      </div>
+      <div class="col d-flex align-items-start">
+        <div class="icon-square bg-light text-dark flex-shrink-0 me-3">
+          <svg class="bi" width="1em" height="1em"><use xlink:href="#tools"></use></svg>
+        </div>
+        <div>
+          <h2>Privacy & Security</h2>
+          <p>End-to-end encryption ensures your conversations remain private.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+      <footer style="border-top: 1px solid black; text-align: center;">
+        <p>©️ Andrei Ivan {{ year }}</p>
+    </footer>
+</body>
+</html>

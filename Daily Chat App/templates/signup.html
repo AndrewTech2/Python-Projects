@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Daily Chat App - Sign up</title>
+    {{ bootstrap.load_css() }}
+</head>
+<body style="text-align: center;">
+    <div class="container">
+    <header class="d-flex justify-content-center py-3">
+      <ul class="nav nav-pills">
+        <li class="nav-item"><a href="/" class="nav-link" aria-current="page">Home</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Features</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">Pricing</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">FAQs</a></li>
+        <li class="nav-item"><a href="#" class="nav-link">About</a></li>
+        <li class="nav-item"><a href="{{ url_for('sign_up') }}" class="btn btn-primary">Sign up</a></li>
+      </ul>
+    </header>
+  </div>
+    <div style="margin-top: 25%;">
+    <h1 class="fw-bold">Please enter your details to begin:</h1>
+    <form action="/signup" method="post">
+      <input type="text" name="username" placeholder="Username" style="border-radius: 5px;">
+      <input type="password" name="password" placeholder="Password" style="border-radius: 5px">
+      <button type="submit" style='margin-left: 10px;' class="btn btn-success">Go</button>
+    </form>
+    </div>
+      <footer style="border-top: 1px solid black; text-align: center; margin-top: 500px">
+        <p>©️ Andrei Ivan {{ year }}</p>
+    </footer>
+</body>
+</html>
