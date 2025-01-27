@@ -23,7 +23,7 @@ email = driver.find_element(By.NAME, 'email')
 email.send_keys("iamandrewtech@gmail.com")
 
 password = driver.find_element(By.NAME, 'pass')
-password.send_keys("Buhuta2010")
+password.send_keys("password123")
 
 submit = driver.find_element(By.NAME, 'login')
 submit.click()

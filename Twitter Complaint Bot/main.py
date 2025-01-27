@@ -44,7 +44,7 @@ def tweet():
     next.click()
 
     password = driver.find_element(By.NAME, 'password')
-    password.send_keys("Buhuta2010")
+    password.send_keys("password123")
 
     complete = driver.find_element(By.XPATH, '//*[@id="layers"]/div[2]/div/div/div/div/div/div[2]/div[2]/div/div/div[2]/div[2]/div[2]/div/div[1]/div/div/button')
     complete.click()
