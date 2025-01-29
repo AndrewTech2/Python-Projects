@@ -23,7 +23,7 @@ def index():
         cur = conn.cursor()
         cur.execute(f"SELECT * FROM tasks WHERE email = '{session['name']}'")
         values = cur.fetchall()
-        tasks = [dict(value) for value in values]
+        tasks = [dict(value) for value in values][::-1]
         return render_template('list.html', tasks=tasks, length=len(tasks))
 
 @app.route("/login", methods=['GET'])

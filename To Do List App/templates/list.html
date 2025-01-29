@@ -9,7 +9,11 @@
     {% for task in tasks: %}
     <div class="list-group-item d-flex gap-3" style="padding-left: 1000; padding-right: 1000">
       <span class="pt-1 form-checked-content">
+        {% if task['completed'] == 'true': %}
+        <strong style="text-decoration: line-through">{{ task['task'] }}</strong>
+        {% else: %}
         <strong>{{ task['task'] }}</strong>
+        {% endif %}
       </span>
       {% if task['completed'] == 'false': %}
       <a href="/completetask/{{ task['task'] }}" class="btn btn-success">Complete</a>
