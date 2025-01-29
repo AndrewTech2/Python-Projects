@@ -42,8 +42,7 @@ while True:
         window = recreate_window()
         update_layout()
     if 'complete-habit' in event:
-        habit_name = event.split("-")[2]
-        print(habit_name)
+        habit_name = "-".join(event.split("-")[2:])
         data_df = pandas.DataFrame(data)
         if habit_name in data_df['Habit'].to_list():
             ind = data_df['Habit'].to_list().index(habit_name)
