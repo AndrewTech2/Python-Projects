@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AI Conversation App</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:ital,wght@0,100..800;1,100..800&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
+    <style>
+        html, body {
+            font-family: "JetBrains Mono", serif;
+            font-optical-sizing: auto;
+            font-weight: <weight>;
+            font-style: normal;
+        }
+    </style>
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+<h1 style="text-align: center; margin-top: 50px;">Gemini Chat</h1>
+{% for message in messages: %}
+{% if message['author'] == 'user': %}
+<div style="border: 1px solid black; margin-left: 100px; margin-right: 100px; border-radius: 5px; margin-top: 5px; background-color: orange;">
+    <p style="color: white; text-align: right; margin-right: 15px;">{{message['message']}}</p>
+</div>
+{% else: %}
+<div style="border: 1px solid black; margin-left: 100px; margin-right: 100px; border-radius: 5px; margin-top: 5px; background-color: #A9B5DF;">
+    <p style="margin-left: 15px;">{{message['message']}}</p>
+</div>
+{% endif %}
+{% endfor %}
+<form action="/" method="post" style="text-align: center; margin-left: 100px; margin-right: 100px; margin-top: 10px;">
+    <input class="form-control" name="query" type="text" placeholder="Your message..." required>
+    <button class="btn btn-success" style="margin-top: 10px;" type="submit">Send</button>
+</form>
+</body>
+</html>
