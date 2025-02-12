@@ -1,4 +1,3 @@
-from ensurepip import bootstrap
 import pandas
 from flask import Flask, render_template, request, redirect
 from flask_bootstrap import Bootstrap5
@@ -45,31 +44,19 @@ def add_cafe():
 
 @app.route('/cafes')
 def cafes():
-    with open('cafe-data.csv', newline='', encoding='utf-8') as csv_file:
-        csv_data = csv.reader(csv_file, delimiter=',')
-        list_of_rows = []
-        for row in csv_data:
-            list_of_rows.append(row)
-    return render_template('cafes.html', cafes=list_of_rows)
+    data = pandas.read_csv("cafe-data.csv", index_col=0)
+    columns = list(data.columns)
+    list_of_rows = data.to_dict('records')
+    print(list_of_rows)
+    return render_template('cafes.html', cafes=list_of_rows, columns=columns)
 
 @app.route('/new', methods=['POST'])
 def new():
     form = dict(request.form)
-    with open('cafe-data.csv', encoding='utf8') as file:
-        data = csv.reader(file)
-        list_of_rows = []
-        for row in data:
-            list_of_rows.append(row)
-    csv_data = {}
-    for header in list_of_rows[0]:
-        ind = list_of_rows[0].index(header)
-        header_list = []
-        for row in list_of_rows[1:]:
-            header_list.append(row[ind])
-        header_list.append(form[header])
-        csv_data[header] = header_list
-    csv_data = pandas.DataFrame(csv_data)
-    csv_data.to_csv('cafe-data.csv')
+    cafe_data = pandas.read_csv("cafe-data.csv", index_col=0).to_dict(orient='records')
+    cafe_data.append(form)
+    new_data = pandas.DataFrame(cafe_data)
+    new_data.to_csv('cafe-data.csv')
     return redirect('/cafes')
 
 if __name__ == '__main__':
