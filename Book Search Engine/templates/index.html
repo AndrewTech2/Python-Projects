@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Simple Book Search</title>
+    {{ bootstrap.load_css() }}
+</head>
+<body>
+    <h1 style="text-align: center;">Simple Book Search</h1>
+    <form action="/" method="post" style="text-align: center; margin-top: 20px;">
+        <input placeholder="Book name..." type="text" name="book" required>
+        <button type="submit">Go</button>
+    </form>
+    {% for book in books: %}
+    <div style="border: 1px black dashed; margin: 10px; padding:15px;">
+        {% if 'authors' in book['volumeInfo']: %}
+        <h2>{{ book['volumeInfo']['title'] }} - by {{ book['volumeInfo']['authors'][0] }}</h2>
+        {% else: %}
+        <h2>{{ book['volumeInfo']['title'] }}</h2>
+        {% endif %}
+        <p>{{ book['volumeInfo']['description'] }}</p>
+        <h3>Publisher: {{ book['volumeInfo']['publisher'] }}</h3>
+        <h3>Published Date: {{ book['volumeInfo']['publishedDate'] }}</h3>
+        {% if book['saleInfo']['saleability'] == 'NOT_FOR_SALE': %}
+        <h3>Book is not for sale</h3>
+        {% elif book['saleInfo']['saleability'] == 'FREE': %}
+        <h3>Price: Free</h3>
+        <a href="{{ book['saleInfo']['buyLink'] }}" class="btn btn-success">Get now</a>
+        {% else: %}
+        <h3>Price: {{ book['saleInfo']['retailPrice']['amount'] }} {{ book['saleInfo']['retailPrice']['currencyCode'] }}</h3>
+        <a href="{{ book['saleInfo']['buyLink'] }}" class="btn btn-success">Buy now</a>
+        {% endif %}
+
+    </div>
+    {% endfor %}
+</body>
+</html>
